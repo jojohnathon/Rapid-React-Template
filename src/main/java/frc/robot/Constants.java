@@ -34,7 +34,7 @@ public class Constants {
     }
     
     public static class ArmConstants {
-        public static final int actuateMotor = 3; //change to actuatemotor
+        public static final int actuateMotor = 4; //change to actuatemotor
 
         /* PID Constants */
         public static double kP = 2.9;
@@ -85,7 +85,7 @@ public class Constants {
 
     public static class IntakeConstants {
         /* Motors */
-        public static final int rollerMotor = 4;
+        public static final int rollerMotor = 3;
     }
 
     public static class ShooterConstants {
