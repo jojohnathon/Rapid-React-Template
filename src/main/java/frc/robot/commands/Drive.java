@@ -24,7 +24,7 @@ public class Drive implements Command {
     }
 
     public enum State {
-        CurvatureDrive2019, CheesyDriveOpenLoop, CheesyDriveClosedLoop
+        CurvatureDrive2019, CheesyDriveOpenLoop, CheesyDriveClosedLoop, TankDrive
     }
     
     private State state;
@@ -33,6 +33,7 @@ public class Drive implements Command {
     public void execute(){
         // Retrieving the deadbanded throttle and turn values (the controller joystick values)
         double throttle = RobotContainer.getThrottle();
+        double altThrottle = RobotContainer.getAltThrottle();
         double turn = RobotContainer.getTurn();
 
         SmartDashboard.putNumber("turn input", turn);
@@ -113,6 +114,10 @@ public class Drive implements Command {
                     right += Drivetrain.RIGHT_PID_CONTROLLER.calculate(Drivetrain.getRightEncVelocityMeters(), right);
                 }
                 
+                break;
+            case TankDrive:
+                left = throttle;
+                right = altThrottle;
                 break;
             default:
                 left = right = 0;
